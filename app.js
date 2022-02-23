@@ -1,67 +1,64 @@
-// Object Literal 
+// Object Literal
 
-const dog = {
-    name: 'Lulu',
-    breed: 'Cavalier King Charles Spaniel',
-    furColor: 'Black and brown',
-    collarColor: 'Pink'
-}
+const phone = {
+  brand: 'Samsung',
+  color: 'blue',
+  model: 'Galaxy S10',
+  ring: function() {
+    console.log('The phone is ringing');
+  }
+};
+// console.log(phone);
+// phone.ring();
 
-// console.log(dog);
-
-// Constructor function
-
-function Dog(name, breed, furColor, collarColor) {
-    this.name = name,
-    this.breed = breed,
-    this.furColor = furColor,
-    this.collarColor = collarColor,
-    this.greet = function() {
-        console.log('Bark bark!');
-    };
+function Dog(name, breed, furColor, size) {
+  this.name = name,
+  this.breed = breed,
+  this.furColor = furColor,
+  this.size = size;
+  this.greet = function() {
+    console.log('Bark bark!');
+  }
 };
 
-const lulu = new Dog('Lulu', 'Cavalier King Charles Spaniel', 'black and brown', 'pink');
-lulu.greet();
-console.log(lulu);
-console.log(lulu.breed);
+const tracy = new Dog('Tracy', 'German Shepherd', 'Brown', 'Large');
+// console.log(tracy);
+// tracy.greet();
 
-const oliver = new Dog('Oliver', 'Cocker Spaniel', 'brown', 'gray');
-oliver.greet();
-console.log(oliver);
-console.log(oliver.collarColor);
-
-// Class
+const lulu = new Dog('Lulu', 'Cavalier King Charles Spaniel', 'Black and brown', 'Medium');
+// console.log(lulu);
+// lulu.greet();
 
 class Person {
-    constructor(firstName, lastName, age, hairColor) {
-        this.firstName = firstName,
-        this.lastName = lastName,
-        this.age = age,
-        this.hairColor = hairColor
-    }
+  constructor(name, hairColor, job, eyeColor) {
+    this.name = name,
+    this.hairColor = hairColor,
+    this.job = job,
+    this.eyeColor = eyeColor;
+  } 
     greet() {
-        console.log(`Hello, my name is ${this.firstName} ${this.lastName}.`);
-    }
+    console.log(`Hello, my name is ${this.name}! I have ${this.eyeColor} eyes.`);
+  };
 };
 
-const john = new Person('John', 'Doe', '23', 'Brown');
-console.log(john);
-john.greet();
-
-// Extended class
+const hema = new Person('Hema', 'Black', 'Junior Web Developer', 'Black');
+console.log(hema);
+hema.greet();
 
 class Athlete extends Person {
-    constructor(firstName, lastName, age, hairColor, sport) {
-    super(firstName, lastName, age, hairColor),
-    this.sport = sport
-    }
-    greetSport() {
-        console.log(`I play ${this.sport}.`);
-    }
+  constructor(name, hairColor, job, eyeColor, sport) {
+    super(name, hairColor, job, eyeColor),
+    this.sport = sport;
+  }
+  saySport() {
+    console.log(`I play ${this.sport}.`);
+  };
 };
 
-const westbrook = new Athlete('Russel', 'Westbrook', '33', 'Black', 'Basketball');
-console.log(westbrook);
-westbrook.greet();
-westbrook.greetSport();
+const jordan = new Athlete('Michael Jordan', 'Bald', 'NBA Player', 'Brown', 'Basketball');
+
+console.log(jordan);
+jordan.saySport();
+jordan.greet();
+console.log(jordan.job);
+
